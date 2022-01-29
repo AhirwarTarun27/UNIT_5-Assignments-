@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 30vh;
+}
+
+.logoBox {
+  width: 100px;
+  height: 100px;
+}
+
+tr,
+thead,
+td {
+  border: 1px solid black;
+}
+th {
+  width: 50%;
+}
+
+.hovering:hover {
+  cursor: pointer;
+}
