@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+.tableBox {
+  margin: auto;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  gap: 20px;
+}
+.tableBox > div:nth-child(1),
+div:nth-child(2) {
+  border: 1px solid black;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
