@@ -1,38 +1,51 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react"
+import { TodoInput } from "./todoInput";
+import { TodoItem } from "./todoItem";
+import {v4 as uuid} from "uuid"
 
 //Parent
 function App() {
-  const [age, setAge] = useState(0)
-  const handleData = (data)=> {
-    setAge(data);
-  }
+  // //          default function
+  // const [age, setAge] = useState(0)
+  // function handleData(data) {
+  //   setAge(data)
+  // }
+  const [todos, setTodos] = useState([])
+  function importText(text) {
+    const handleText = {
+      title: text,
+      id: uuid(),
+      status: false
+    }
+    setTodos([...todos,handleText])
+}
+  
   return (
     <div className="App">
-      <p>your name is: {age}</p>
-      <First getData={handleData} />
+      <TodoInput importText={importText}/>
+      {todos.map((e)=>{
+        return <TodoItem key={e.id} title={e.title} status ={e.status } />
+      })}
     </div>
   );
 }
 
-//Child
-function First({getData}) {
-  const age = 10;
-  getData(age);
-  return (
-    <div>
-      First <p>Your age is: {age}</p>
-    </div>
-  );
-}
+// function Child({ageData}) {
+//   const age = 6;
+//   ageData(age)
+//   return <div>
+//     <h1>First</h1>
+//   </div>
+// }
 
-function Second({ age }) {
-  return (
-    <div>
-      Second <p>Your age is: {age}</p>
-    </div>
-  );
-}
+// function Child2({age}) {
+//   return <div>
+//     <h1>I am the second child my age is { age}</h1>
+//   </div>
+// }
+
+
 
 export default App;
