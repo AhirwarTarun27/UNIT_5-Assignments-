@@ -5,13 +5,28 @@
 .tableBox {
   margin: auto;
   display: flex;
-  border: 1px solid black;
   justify-content: center;
   gap: 20px;
 }
-.tableBox > div:nth-child(1),
-div:nth-child(2) {
-  border: 1px solid black;
+
+.hoverRed:hover {
+  background-color: rgb(163, 7, 7);
+  color: white;
+}
+.hoverGreen:hover {
+  background-color: rgb(8, 163, 8);
+  color: white;
+}
+
+li {
+  display: flex;
+  gap: 10px;
+}
+.status {
+  cursor: pointer;
+}
+.status:hover {
+  font-weight: bolder;
 }
 
 .button {

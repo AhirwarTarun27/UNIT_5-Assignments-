@@ -3,34 +3,44 @@ import './App.css';
 import { TodoInput } from './todoInput';
 import { TodoItem } from './todoItems';
 import { useState } from 'react';
-import { v4 as uuid } from "uuid"
+
 
 function App() {
+  const [todo, setTodo] = useState("")
   const [todolist, setTodolist] = useState([])
-  const importList = (text) => {
-    let sr = 0;
-    const data = {
-      title: text,
-      sr: Number(sr),
-      id: uuid(),
-      status: false,
-    }
-    setTodolist([...todolist,data])
-  }
+  
 
   const deleteId = (id) => {
-    let index = todolist.indexOf(id)
-    delete index
+    console.log("Delete")
+    console.log(setTodolist)
+    setTodolist((oldItems) => {
+      return oldItems.filter((title, index) => {
+        return index !== id
+      })
+    })
+  }
+  const reverseStatus = (todolist) => {
+    console.log(todolist)
+    
+    setTodolist(
+      todolist.map((item) => {
+        if (item.id === todolist.id) {
+          return {...item, status: !item.status}
+        }
+        return item;
+      })
+    )
+    
   }
   
   return (
     <div className="App">
 
       <div className='container'>
-        <TodoInput importText={ importList}/>
+        <TodoInput todo={todo} setTodo={setTodo} todolist={todolist} setTodolist={ setTodolist}/>
         
-        {todolist.map((e) => {
-       return <TodoItem getId={deleteId} title={e.title} sr={e.sr} id={e.id} status={e.status} />
+        {todolist.map((e,index) => {
+       return <TodoItem onSelect={deleteId} key={e.id} statusId={e.id} id={index} title={e.title} status={e.status} todolist={todolist} setTodolist={ setTodolist} />
       })}
       </div>
      
