@@ -14,7 +14,7 @@ const [todos,setTodos] = useState([])
       
       const getData = () => {
             setLoading(true)
-            fetch(`http://localhost:3001/todos?_page=${page}&_limit=2`).then((d) => d.json()).then((res) => { setTodos(res); setLoading(false) })
+            fetch(`http://localhost:3001/todos?_page=${page}&_limit=2`).then((d) => d.json()).then((res) => { setTodos(res); setLoading(false) }) 
       }
       
       
