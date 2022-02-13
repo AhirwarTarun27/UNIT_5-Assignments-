@@ -17,7 +17,7 @@ function App() {
       >
         change Theme
       </button> */}
-      <Thead setList={setList} />
+      <Thead list={list} setList={setList} />
       {console.log(list)}
     </div>
   );

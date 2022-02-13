@@ -17,12 +17,15 @@ const styleHead = styled.thead`
   background: teal;
   color: white;
 `;
-export const Thead = ({ setList }) => {
+export const Thead = ({ list, setList }) => {
   const [text, setText] = useState(dataObj);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setText({ ...text, [name]: value });
+  };
+  const addItem = () => {
+    setList([...list, text]);
   };
 
   const { name, points, team } = text;
@@ -86,7 +89,11 @@ export const Thead = ({ setList }) => {
               class="btn btn-primary"
               onClick={(e) => {
                 e.preventDefault();
-                setList({ ...text });
+                // setList([...list, text]);
+                console.log("text:", text);
+                console.log("list", list);
+                console.log(addItem);
+                // console.log(text);
                 // console.log(
                 //   setList((prop) => {
                 //     [...prop];
