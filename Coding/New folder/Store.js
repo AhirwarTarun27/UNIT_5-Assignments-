@@ -1,4 +1,7 @@
 import { createStore } from "redux";
+import { incCount } from "./store/actions.js";
+import { INC_COUNT } from "./store/actionTypes.js";
+import { reducer } from "./store/reducers.js";
 // const addCount = { type: "INC_COUNT", payload: 1 };
 // const decCount = { type: "DEC_COUNT", payload: 1 };
 
@@ -17,22 +20,10 @@ import { createStore } from "redux";
 //   }
 // }
 
-//store: {count: 0, todo: []}
-const reducer = (store, action) => {
-  switch (action.type) {
-    case "INC_COUNT":
-      return { ...store, count: store.count + action.payload };
-    case "ADD_TODO":
-      return { ...store, todo: [...store.todo, action.payload] };
-    default:
-      return store;
-  }
-};
-
 const store = createStore(reducer, { count: 0, todo: [] });
 
 console.log(store.getState());
-store.dispatch({ type: "INC_COUNT", payload: 1 });
+store.dispatch(incCount(1));
 console.log(store.getState());
 
 store.dispatch({
