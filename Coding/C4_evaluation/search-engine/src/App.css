@@ -1,0 +1,24 @@
+.googleI{
+  width: 80%;
+  margin-left: 10%;
+}
+
+#navbar{
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+}
+
+#gImg{
+  margin-left: 30%;
+  margin-top: 2%;
+  width: 40%;
+}
+
+.search-box{
+  margin: 5% 0 0 40%;
+}
+
+#detailed-result{
+  margin-top: 2%;
+  border: 2px solid black;
+}
